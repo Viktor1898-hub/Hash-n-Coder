@@ -43,15 +43,30 @@
             this.BtnHtml = new Guna.UI2.WinForms.Guna2Button();
             this.BtnUnescape = new Guna.UI2.WinForms.Guna2Button();
             this.RunBtn1 = new Guna.UI2.WinForms.Guna2Button();
-            this.EncodInputText = new Guna.UI2.WinForms.Guna2TextBox();
-            this.EncodResultText = new Guna.UI2.WinForms.Guna2TextBox();
+            this.InputText = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ResultText = new Guna.UI2.WinForms.Guna2TextBox();
             this.PasteBtn1 = new Guna.UI2.WinForms.Guna2Button();
             this.CopyBtn1 = new Guna.UI2.WinForms.Guna2Button();
             this.EncodeBtn = new Guna.UI2.WinForms.Guna2Button();
             this.DecodeBtn = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.AlgorPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2VScrollBar1 = new Guna.UI2.WinForms.Guna2VScrollBar();
+            this.guna2VScrollBar2 = new Guna.UI2.WinForms.Guna2VScrollBar();
+            this.KeyText = new Guna.UI2.WinForms.Guna2TextBox();
+            this.KeyGenerateBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.KeyPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2VScrollBar3 = new Guna.UI2.WinForms.Guna2VScrollBar();
+            this.guna2DragControl3 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.AESComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.EBCBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.CBCBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2DragControl4 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2HScrollBar1 = new Guna.UI2.WinForms.Guna2HScrollBar();
+            this.guna2HScrollBar2 = new Guna.UI2.WinForms.Guna2HScrollBar();
+            this.guna2HScrollBar3 = new Guna.UI2.WinForms.Guna2HScrollBar();
             this.MenuPanel.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
+            this.AlgorPanel.SuspendLayout();
+            this.KeyPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2DragControl1
@@ -172,7 +187,7 @@
             this.BtnBase64.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.BtnBase64.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnBase64.ForeColor = System.Drawing.Color.White;
-            this.BtnBase64.Location = new System.Drawing.Point(5, 3);
+            this.BtnBase64.Location = new System.Drawing.Point(5, 103);
             this.BtnBase64.Name = "BtnBase64";
             this.BtnBase64.ShadowDecoration.Enabled = true;
             this.BtnBase64.Size = new System.Drawing.Size(96, 55);
@@ -192,7 +207,7 @@
             this.BtnUrl.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.BtnUrl.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnUrl.ForeColor = System.Drawing.Color.White;
-            this.BtnUrl.Location = new System.Drawing.Point(5, 64);
+            this.BtnUrl.Location = new System.Drawing.Point(5, 164);
             this.BtnUrl.Name = "BtnUrl";
             this.BtnUrl.ShadowDecoration.Enabled = true;
             this.BtnUrl.Size = new System.Drawing.Size(96, 55);
@@ -212,7 +227,7 @@
             this.BtnHtml.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.BtnHtml.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHtml.ForeColor = System.Drawing.Color.White;
-            this.BtnHtml.Location = new System.Drawing.Point(5, 125);
+            this.BtnHtml.Location = new System.Drawing.Point(5, 225);
             this.BtnHtml.Name = "BtnHtml";
             this.BtnHtml.ShadowDecoration.Enabled = true;
             this.BtnHtml.Size = new System.Drawing.Size(96, 55);
@@ -230,9 +245,9 @@
             this.BtnUnescape.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.BtnUnescape.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.BtnUnescape.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.BtnUnescape.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnUnescape.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.BtnUnescape.ForeColor = System.Drawing.Color.White;
-            this.BtnUnescape.Location = new System.Drawing.Point(5, 186);
+            this.BtnUnescape.Location = new System.Drawing.Point(5, 286);
             this.BtnUnescape.Name = "BtnUnescape";
             this.BtnUnescape.ShadowDecoration.Enabled = true;
             this.BtnUnescape.Size = new System.Drawing.Size(96, 55);
@@ -251,65 +266,66 @@
             this.RunBtn1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.RunBtn1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RunBtn1.ForeColor = System.Drawing.Color.White;
-            this.RunBtn1.Location = new System.Drawing.Point(52, 530);
+            this.RunBtn1.Location = new System.Drawing.Point(49, 627);
             this.RunBtn1.Name = "RunBtn1";
             this.RunBtn1.ShadowDecoration.Enabled = true;
-            this.RunBtn1.Size = new System.Drawing.Size(134, 55);
+            this.RunBtn1.Size = new System.Drawing.Size(121, 55);
             this.RunBtn1.TabIndex = 7;
             this.RunBtn1.Text = "Run";
             // 
-            // EncodInputText
+            // InputText
             // 
-            this.EncodInputText.BackColor = System.Drawing.Color.Transparent;
-            this.EncodInputText.BorderColor = System.Drawing.Color.Black;
-            this.EncodInputText.BorderRadius = 6;
-            this.EncodInputText.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.EncodInputText.DefaultText = "";
-            this.EncodInputText.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.EncodInputText.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.EncodInputText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.EncodInputText.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.EncodInputText.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.EncodInputText.FocusedState.BorderColor = System.Drawing.Color.Black;
-            this.EncodInputText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EncodInputText.HoverState.BorderColor = System.Drawing.Color.Black;
-            this.EncodInputText.Location = new System.Drawing.Point(307, 86);
-            this.EncodInputText.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.EncodInputText.Multiline = true;
-            this.EncodInputText.Name = "EncodInputText";
-            this.EncodInputText.PlaceholderForeColor = System.Drawing.Color.White;
-            this.EncodInputText.PlaceholderText = "";
-            this.EncodInputText.SelectedText = "";
-            this.EncodInputText.ShadowDecoration.Enabled = true;
-            this.EncodInputText.Size = new System.Drawing.Size(659, 260);
-            this.EncodInputText.TabIndex = 8;
+            this.InputText.BackColor = System.Drawing.Color.Transparent;
+            this.InputText.BorderColor = System.Drawing.Color.Black;
+            this.InputText.BorderRadius = 6;
+            this.InputText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.InputText.DefaultText = "";
+            this.InputText.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.InputText.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.InputText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.InputText.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.InputText.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.InputText.FocusedState.BorderColor = System.Drawing.Color.Black;
+            this.InputText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.InputText.HoverState.BorderColor = System.Drawing.Color.Black;
+            this.InputText.Location = new System.Drawing.Point(307, 157);
+            this.InputText.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.InputText.Multiline = true;
+            this.InputText.Name = "InputText";
+            this.InputText.PlaceholderForeColor = System.Drawing.Color.White;
+            this.InputText.PlaceholderText = "";
+            this.InputText.SelectedText = "";
+            this.InputText.ShadowDecoration.Enabled = true;
+            this.InputText.Size = new System.Drawing.Size(659, 260);
+            this.InputText.TabIndex = 8;
+            this.InputText.WordWrap = false;
             // 
-            // EncodResultText
+            // ResultText
             // 
-            this.EncodResultText.BackColor = System.Drawing.Color.Transparent;
-            this.EncodResultText.BorderColor = System.Drawing.Color.Black;
-            this.EncodResultText.BorderRadius = 6;
-            this.EncodResultText.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.EncodResultText.DefaultText = "";
-            this.EncodResultText.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.EncodResultText.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.EncodResultText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.EncodResultText.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.EncodResultText.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.EncodResultText.FocusedState.BorderColor = System.Drawing.Color.Black;
-            this.EncodResultText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EncodResultText.HoverState.BorderColor = System.Drawing.Color.Black;
-            this.EncodResultText.Location = new System.Drawing.Point(307, 362);
-            this.EncodResultText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.EncodResultText.Multiline = true;
-            this.EncodResultText.Name = "EncodResultText";
-            this.EncodResultText.PlaceholderForeColor = System.Drawing.Color.White;
-            this.EncodResultText.PlaceholderText = "";
-            this.EncodResultText.ReadOnly = true;
-            this.EncodResultText.SelectedText = "";
-            this.EncodResultText.ShadowDecoration.Enabled = true;
-            this.EncodResultText.Size = new System.Drawing.Size(659, 260);
-            this.EncodResultText.TabIndex = 9;
+            this.ResultText.BackColor = System.Drawing.Color.Transparent;
+            this.ResultText.BorderColor = System.Drawing.Color.Black;
+            this.ResultText.BorderRadius = 6;
+            this.ResultText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ResultText.DefaultText = "";
+            this.ResultText.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ResultText.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ResultText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ResultText.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ResultText.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.ResultText.FocusedState.BorderColor = System.Drawing.Color.Black;
+            this.ResultText.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.ResultText.HoverState.BorderColor = System.Drawing.Color.Black;
+            this.ResultText.Location = new System.Drawing.Point(307, 422);
+            this.ResultText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ResultText.Multiline = true;
+            this.ResultText.Name = "ResultText";
+            this.ResultText.PlaceholderForeColor = System.Drawing.Color.White;
+            this.ResultText.PlaceholderText = "";
+            this.ResultText.ReadOnly = true;
+            this.ResultText.SelectedText = "";
+            this.ResultText.ShadowDecoration.Enabled = true;
+            this.ResultText.Size = new System.Drawing.Size(659, 260);
+            this.ResultText.TabIndex = 9;
             // 
             // PasteBtn1
             // 
@@ -323,7 +339,7 @@
             this.PasteBtn1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.PasteBtn1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.PasteBtn1.ForeColor = System.Drawing.Color.White;
-            this.PasteBtn1.Location = new System.Drawing.Point(205, 86);
+            this.PasteBtn1.Location = new System.Drawing.Point(205, 157);
             this.PasteBtn1.Name = "PasteBtn1";
             this.PasteBtn1.ShadowDecoration.Enabled = true;
             this.PasteBtn1.Size = new System.Drawing.Size(96, 55);
@@ -342,7 +358,7 @@
             this.CopyBtn1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.CopyBtn1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.CopyBtn1.ForeColor = System.Drawing.Color.White;
-            this.CopyBtn1.Location = new System.Drawing.Point(205, 362);
+            this.CopyBtn1.Location = new System.Drawing.Point(205, 422);
             this.CopyBtn1.Name = "CopyBtn1";
             this.CopyBtn1.ShadowDecoration.Enabled = true;
             this.CopyBtn1.Size = new System.Drawing.Size(96, 55);
@@ -364,7 +380,7 @@
             this.EncodeBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.EncodeBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.EncodeBtn.ForeColor = System.Drawing.Color.White;
-            this.EncodeBtn.Location = new System.Drawing.Point(52, 362);
+            this.EncodeBtn.Location = new System.Drawing.Point(54, 422);
             this.EncodeBtn.Name = "EncodeBtn";
             this.EncodeBtn.ShadowDecoration.Enabled = true;
             this.EncodeBtn.Size = new System.Drawing.Size(96, 55);
@@ -385,37 +401,261 @@
             this.DecodeBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.DecodeBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.DecodeBtn.ForeColor = System.Drawing.Color.White;
-            this.DecodeBtn.Location = new System.Drawing.Point(52, 423);
+            this.DecodeBtn.Location = new System.Drawing.Point(54, 483);
             this.DecodeBtn.Name = "DecodeBtn";
             this.DecodeBtn.ShadowDecoration.Enabled = true;
             this.DecodeBtn.Size = new System.Drawing.Size(96, 55);
             this.DecodeBtn.TabIndex = 13;
             this.DecodeBtn.Text = "Decode";
             // 
-            // guna2Panel1
+            // AlgorPanel
             // 
-            this.guna2Panel1.Controls.Add(this.BtnBase64);
-            this.guna2Panel1.Controls.Add(this.BtnUrl);
-            this.guna2Panel1.Controls.Add(this.BtnHtml);
-            this.guna2Panel1.Controls.Add(this.BtnUnescape);
-            this.guna2Panel1.Location = new System.Drawing.Point(46, 83);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(104, 244);
-            this.guna2Panel1.TabIndex = 14;
+            this.AlgorPanel.Controls.Add(this.CBCBtn);
+            this.AlgorPanel.Controls.Add(this.BtnBase64);
+            this.AlgorPanel.Controls.Add(this.EBCBtn);
+            this.AlgorPanel.Controls.Add(this.BtnUrl);
+            this.AlgorPanel.Controls.Add(this.AESComboBox);
+            this.AlgorPanel.Controls.Add(this.BtnHtml);
+            this.AlgorPanel.Controls.Add(this.BtnUnescape);
+            this.AlgorPanel.Location = new System.Drawing.Point(49, 54);
+            this.AlgorPanel.Name = "AlgorPanel";
+            this.AlgorPanel.Size = new System.Drawing.Size(114, 344);
+            this.AlgorPanel.TabIndex = 14;
+            // 
+            // guna2VScrollBar1
+            // 
+            this.guna2VScrollBar1.BorderRadius = 6;
+            this.guna2VScrollBar1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2VScrollBar1.InUpdate = false;
+            this.guna2VScrollBar1.Location = new System.Drawing.Point(943, 164);
+            this.guna2VScrollBar1.Name = "guna2VScrollBar1";
+            this.guna2VScrollBar1.ScrollbarSize = 15;
+            this.guna2VScrollBar1.Size = new System.Drawing.Size(15, 245);
+            this.guna2VScrollBar1.TabIndex = 15;
+            this.guna2VScrollBar1.ThumbColor = System.Drawing.Color.Silver;
+            this.guna2VScrollBar1.ThumbStyle = Guna.UI2.WinForms.Enums.ThumbStyle.Inset;
+            // 
+            // guna2VScrollBar2
+            // 
+            this.guna2VScrollBar2.BorderRadius = 6;
+            this.guna2VScrollBar2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2VScrollBar2.InUpdate = false;
+            this.guna2VScrollBar2.Location = new System.Drawing.Point(943, 429);
+            this.guna2VScrollBar2.Name = "guna2VScrollBar2";
+            this.guna2VScrollBar2.ScrollbarSize = 15;
+            this.guna2VScrollBar2.Size = new System.Drawing.Size(15, 245);
+            this.guna2VScrollBar2.TabIndex = 16;
+            this.guna2VScrollBar2.ThumbColor = System.Drawing.Color.Silver;
+            this.guna2VScrollBar2.ThumbStyle = Guna.UI2.WinForms.Enums.ThumbStyle.Inset;
+            // 
+            // KeyText
+            // 
+            this.KeyText.BackColor = System.Drawing.Color.Transparent;
+            this.KeyText.BorderColor = System.Drawing.Color.Black;
+            this.KeyText.BorderRadius = 6;
+            this.KeyText.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.KeyText.DefaultText = "";
+            this.KeyText.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.KeyText.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.KeyText.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.KeyText.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.KeyText.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.KeyText.FocusedState.BorderColor = System.Drawing.Color.Black;
+            this.KeyText.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.KeyText.HoverState.BorderColor = System.Drawing.Color.Black;
+            this.KeyText.Location = new System.Drawing.Point(110, 7);
+            this.KeyText.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.KeyText.Multiline = true;
+            this.KeyText.Name = "KeyText";
+            this.KeyText.PlaceholderForeColor = System.Drawing.Color.White;
+            this.KeyText.PlaceholderText = "";
+            this.KeyText.SelectedText = "";
+            this.KeyText.ShadowDecoration.Enabled = true;
+            this.KeyText.Size = new System.Drawing.Size(659, 86);
+            this.KeyText.TabIndex = 17;
+            // 
+            // KeyGenerateBtn
+            // 
+            this.KeyGenerateBtn.Animated = true;
+            this.KeyGenerateBtn.BackColor = System.Drawing.Color.Transparent;
+            this.KeyGenerateBtn.BorderRadius = 6;
+            this.KeyGenerateBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.KeyGenerateBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.KeyGenerateBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.KeyGenerateBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.KeyGenerateBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.KeyGenerateBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
+            this.KeyGenerateBtn.ForeColor = System.Drawing.Color.White;
+            this.KeyGenerateBtn.Location = new System.Drawing.Point(8, 7);
+            this.KeyGenerateBtn.Name = "KeyGenerateBtn";
+            this.KeyGenerateBtn.ShadowDecoration.Enabled = true;
+            this.KeyGenerateBtn.Size = new System.Drawing.Size(96, 55);
+            this.KeyGenerateBtn.TabIndex = 18;
+            this.KeyGenerateBtn.Text = "Generate key";
+            // 
+            // KeyPanel
+            // 
+            this.KeyPanel.Controls.Add(this.guna2HScrollBar3);
+            this.KeyPanel.Controls.Add(this.guna2VScrollBar3);
+            this.KeyPanel.Controls.Add(this.KeyText);
+            this.KeyPanel.Controls.Add(this.KeyGenerateBtn);
+            this.KeyPanel.Location = new System.Drawing.Point(197, 54);
+            this.KeyPanel.Name = "KeyPanel";
+            this.KeyPanel.Size = new System.Drawing.Size(783, 97);
+            this.KeyPanel.TabIndex = 19;
+            this.KeyPanel.Visible = false;
+            // 
+            // guna2VScrollBar3
+            // 
+            this.guna2VScrollBar3.BorderRadius = 6;
+            this.guna2VScrollBar3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2VScrollBar3.InUpdate = false;
+            this.guna2VScrollBar3.Location = new System.Drawing.Point(746, 17);
+            this.guna2VScrollBar3.Name = "guna2VScrollBar3";
+            this.guna2VScrollBar3.ScrollbarSize = 15;
+            this.guna2VScrollBar3.Size = new System.Drawing.Size(15, 67);
+            this.guna2VScrollBar3.TabIndex = 19;
+            this.guna2VScrollBar3.ThumbColor = System.Drawing.Color.Silver;
+            this.guna2VScrollBar3.ThumbStyle = Guna.UI2.WinForms.Enums.ThumbStyle.Inset;
+            // 
+            // guna2DragControl3
+            // 
+            this.guna2DragControl3.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl3.TargetControl = this.KeyPanel;
+            this.guna2DragControl3.UseTransparentDrag = true;
+            // 
+            // AESComboBox
+            // 
+            this.AESComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.AESComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.AESComboBox.BorderRadius = 6;
+            this.AESComboBox.BorderThickness = 0;
+            this.AESComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.AESComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AESComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.AESComboBox.FocusedColor = System.Drawing.Color.Black;
+            this.AESComboBox.FocusedState.BorderColor = System.Drawing.Color.Black;
+            this.AESComboBox.FocusedState.FillColor = System.Drawing.Color.Transparent;
+            this.AESComboBox.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AESComboBox.ForeColor = System.Drawing.Color.Silver;
+            this.AESComboBox.ItemHeight = 30;
+            this.AESComboBox.Items.AddRange(new object[] {
+            "128",
+            "192",
+            "256"});
+            this.AESComboBox.Location = new System.Drawing.Point(5, 7);
+            this.AESComboBox.Name = "AESComboBox";
+            this.AESComboBox.ShadowDecoration.Enabled = true;
+            this.AESComboBox.Size = new System.Drawing.Size(96, 36);
+            this.AESComboBox.StartIndex = 0;
+            this.AESComboBox.TabIndex = 0;
+            this.AESComboBox.Visible = false;
+            // 
+            // EBCBtn
+            // 
+            this.EBCBtn.Animated = true;
+            this.EBCBtn.BackColor = System.Drawing.Color.Transparent;
+            this.EBCBtn.BorderRadius = 6;
+            this.EBCBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.EBCBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.EBCBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.EBCBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.EBCBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.EBCBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.EBCBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
+            this.EBCBtn.ForeColor = System.Drawing.Color.White;
+            this.EBCBtn.Location = new System.Drawing.Point(5, 103);
+            this.EBCBtn.Name = "EBCBtn";
+            this.EBCBtn.ShadowDecoration.Enabled = true;
+            this.EBCBtn.Size = new System.Drawing.Size(96, 55);
+            this.EBCBtn.TabIndex = 5;
+            this.EBCBtn.Text = "AES-EBC";
+            this.EBCBtn.Visible = false;
+            // 
+            // CBCBtn
+            // 
+            this.CBCBtn.Animated = true;
+            this.CBCBtn.BackColor = System.Drawing.Color.Transparent;
+            this.CBCBtn.BorderRadius = 6;
+            this.CBCBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.CBCBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.CBCBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.CBCBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.CBCBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.CBCBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.CBCBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
+            this.CBCBtn.ForeColor = System.Drawing.Color.White;
+            this.CBCBtn.Location = new System.Drawing.Point(5, 164);
+            this.CBCBtn.Name = "CBCBtn";
+            this.CBCBtn.ShadowDecoration.Enabled = true;
+            this.CBCBtn.Size = new System.Drawing.Size(96, 55);
+            this.CBCBtn.TabIndex = 21;
+            this.CBCBtn.Text = "AES-CBC";
+            this.CBCBtn.Visible = false;
+            // 
+            // guna2DragControl4
+            // 
+            this.guna2DragControl4.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl4.TargetControl = this.AlgorPanel;
+            this.guna2DragControl4.UseTransparentDrag = true;
+            // 
+            // guna2HScrollBar1
+            // 
+            this.guna2HScrollBar1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2HScrollBar1.BorderRadius = 6;
+            this.guna2HScrollBar1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2HScrollBar1.InUpdate = false;
+            this.guna2HScrollBar1.Location = new System.Drawing.Point(317, 394);
+            this.guna2HScrollBar1.Name = "guna2HScrollBar1";
+            this.guna2HScrollBar1.ScrollbarSize = 15;
+            this.guna2HScrollBar1.Size = new System.Drawing.Size(620, 15);
+            this.guna2HScrollBar1.TabIndex = 20;
+            this.guna2HScrollBar1.ThumbColor = System.Drawing.Color.Silver;
+            // 
+            // guna2HScrollBar2
+            // 
+            this.guna2HScrollBar2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2HScrollBar2.BorderRadius = 6;
+            this.guna2HScrollBar2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2HScrollBar2.InUpdate = false;
+            this.guna2HScrollBar2.Location = new System.Drawing.Point(317, 659);
+            this.guna2HScrollBar2.Name = "guna2HScrollBar2";
+            this.guna2HScrollBar2.ScrollbarSize = 15;
+            this.guna2HScrollBar2.Size = new System.Drawing.Size(620, 15);
+            this.guna2HScrollBar2.TabIndex = 21;
+            this.guna2HScrollBar2.ThumbColor = System.Drawing.Color.Silver;
+            // 
+            // guna2HScrollBar3
+            // 
+            this.guna2HScrollBar3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2HScrollBar3.BorderRadius = 6;
+            this.guna2HScrollBar3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2HScrollBar3.InUpdate = false;
+            this.guna2HScrollBar3.Location = new System.Drawing.Point(120, 69);
+            this.guna2HScrollBar3.Name = "guna2HScrollBar3";
+            this.guna2HScrollBar3.ScrollbarSize = 15;
+            this.guna2HScrollBar3.Size = new System.Drawing.Size(620, 15);
+            this.guna2HScrollBar3.TabIndex = 22;
+            this.guna2HScrollBar3.ThumbColor = System.Drawing.Color.Silver;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(992, 646);
-            this.Controls.Add(this.guna2Panel1);
+            this.ClientSize = new System.Drawing.Size(992, 699);
+            this.Controls.Add(this.guna2HScrollBar2);
+            this.Controls.Add(this.guna2HScrollBar1);
+            this.Controls.Add(this.KeyPanel);
+            this.Controls.Add(this.guna2VScrollBar2);
+            this.Controls.Add(this.guna2VScrollBar1);
+            this.Controls.Add(this.AlgorPanel);
             this.Controls.Add(this.DecodeBtn);
             this.Controls.Add(this.EncodeBtn);
             this.Controls.Add(this.CopyBtn1);
             this.Controls.Add(this.PasteBtn1);
-            this.Controls.Add(this.EncodResultText);
-            this.Controls.Add(this.EncodInputText);
+            this.Controls.Add(this.ResultText);
+            this.Controls.Add(this.InputText);
             this.Controls.Add(this.RunBtn1);
             this.Controls.Add(this.MenuPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -425,7 +665,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hash\'n\'Code";
             this.MenuPanel.ResumeLayout(false);
-            this.guna2Panel1.ResumeLayout(false);
+            this.AlgorPanel.ResumeLayout(false);
+            this.KeyPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -445,13 +686,27 @@
         private Guna.UI2.WinForms.Guna2Button BtnHtml;
         private Guna.UI2.WinForms.Guna2Button BtnUrl;
         private Guna.UI2.WinForms.Guna2Button BtnBase64;
-        private Guna.UI2.WinForms.Guna2TextBox EncodResultText;
-        private Guna.UI2.WinForms.Guna2TextBox EncodInputText;
+        private Guna.UI2.WinForms.Guna2TextBox ResultText;
+        private Guna.UI2.WinForms.Guna2TextBox InputText;
         private Guna.UI2.WinForms.Guna2Button CopyBtn1;
         private Guna.UI2.WinForms.Guna2Button PasteBtn1;
         private Guna.UI2.WinForms.Guna2Button DecodeBtn;
         private Guna.UI2.WinForms.Guna2Button EncodeBtn;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel AlgorPanel;
+        private Guna.UI2.WinForms.Guna2VScrollBar guna2VScrollBar1;
+        private Guna.UI2.WinForms.Guna2VScrollBar guna2VScrollBar2;
+        private Guna.UI2.WinForms.Guna2TextBox KeyText;
+        private Guna.UI2.WinForms.Guna2Button KeyGenerateBtn;
+        private Guna.UI2.WinForms.Guna2Panel KeyPanel;
+        private Guna.UI2.WinForms.Guna2VScrollBar guna2VScrollBar3;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl3;
+        private Guna.UI2.WinForms.Guna2Button CBCBtn;
+        private Guna.UI2.WinForms.Guna2Button EBCBtn;
+        private Guna.UI2.WinForms.Guna2ComboBox AESComboBox;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl4;
+        private Guna.UI2.WinForms.Guna2HScrollBar guna2HScrollBar2;
+        private Guna.UI2.WinForms.Guna2HScrollBar guna2HScrollBar1;
+        private Guna.UI2.WinForms.Guna2HScrollBar guna2HScrollBar3;
     }
 }
 
