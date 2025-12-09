@@ -347,6 +347,7 @@
             this.PasteBtn.Size = new System.Drawing.Size(96, 55);
             this.PasteBtn.TabIndex = 10;
             this.PasteBtn.Text = "Paste";
+            this.PasteBtn.Click += new System.EventHandler(this.PasteBtn_Click);
             // 
             // CopyBtn
             // 

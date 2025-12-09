@@ -59,6 +59,18 @@ namespace Hash_n_Coder
             EncodeBtn.Visible = false;
             DecodeBtn.Visible = false;
         }
+
+        private void PasteBtn_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText())
+            {
+                InputText.Text = Clipboard.GetText();
+            }
+            else
+            {
+                MessageBox.Show("Clipboard does not contain any text.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
 
