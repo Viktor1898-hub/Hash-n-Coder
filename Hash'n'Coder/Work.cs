@@ -19,5 +19,9 @@ namespace Hash_n_Coder
             var base64EncodedBytes = Convert.FromBase64String(Settings.inputText);
             Settings.resulttext = Encoding.UTF8.GetString(base64EncodedBytes);
         }
+        public static void UrlEncode()
+        {
+            Settings.resulttext = System.Net.WebUtility.UrlEncode(Settings.inputText);
+        }
     }
 }

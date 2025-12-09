@@ -102,6 +102,13 @@ namespace Hash_n_Coder
                             Work.Decode64();
                         }
                     }
+                    if (BtnUrl.Checked)
+                    {
+                        if (EncodeBtn.Checked)
+                        {
+                            Work.UrlEncode();
+                        }
+                    }
                 }
                 ResultText.Text = Settings.resulttext;
             }
