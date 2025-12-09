@@ -71,6 +71,18 @@ namespace Hash_n_Coder
                 MessageBox.Show("Clipboard does not contain any text.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void CopyBtn_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(ResultText.Text))
+            {
+                Clipboard.SetText(ResultText.Text);
+            }
+            else
+            {
+                MessageBox.Show("There is no text to copy.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
 

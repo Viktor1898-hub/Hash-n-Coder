@@ -367,6 +367,7 @@
             this.CopyBtn.Size = new System.Drawing.Size(96, 55);
             this.CopyBtn.TabIndex = 11;
             this.CopyBtn.Text = "Copy";
+            this.CopyBtn.Click += new System.EventHandler(this.CopyBtn_Click);
             // 
             // EncodeBtn
             // 
