@@ -269,6 +269,7 @@
             this.RunBtn.Size = new System.Drawing.Size(121, 55);
             this.RunBtn.TabIndex = 7;
             this.RunBtn.Text = "Run";
+            this.RunBtn.Click += new System.EventHandler(this.RunBtn_Click);
             // 
             // InputText
             // 

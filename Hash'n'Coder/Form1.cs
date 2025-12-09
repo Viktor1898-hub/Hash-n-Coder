@@ -83,6 +83,31 @@ namespace Hash_n_Coder
                 MessageBox.Show("There is no text to copy.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void RunBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Settings.inputText = InputText.Text;
+                if (EncodBtn.Checked)
+                {
+                    if (BtnBase64.Checked)
+                    {
+                        if (EncodeBtn.Checked)
+                        {
+                            Work.Encode64();
+                        }
+                        else if (DecodeBtn.Checked)
+                        {
+                            Work.Decode64();
+                        }
+                    }
+                }
+                ResultText.Text = Settings.resulttext;
+            }
+            catch { }
+        }
     }
 }
+
 
