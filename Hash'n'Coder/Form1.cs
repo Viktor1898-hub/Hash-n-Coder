@@ -124,6 +124,13 @@ namespace Hash_n_Coder
                             Work.HtmlDecode();
                         }
                     }
+                    if (BtnUnescape.Checked)
+                    {
+                        if (EncodeBtn.Checked)
+                        {
+                            Work.EscapeEncode();
+                        }
+                    }
                 }
                 ResultText.Text = Settings.resulttext;
             }

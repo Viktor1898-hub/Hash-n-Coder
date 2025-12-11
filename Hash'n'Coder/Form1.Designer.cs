@@ -249,7 +249,7 @@
             this.BtnUnescape.ShadowDecoration.Enabled = true;
             this.BtnUnescape.Size = new System.Drawing.Size(96, 55);
             this.BtnUnescape.TabIndex = 4;
-            this.BtnUnescape.Text = "Unescape";
+            this.BtnUnescape.Text = "Escape";
             // 
             // RunBtn
             // 

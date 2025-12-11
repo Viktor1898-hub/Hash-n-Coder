@@ -36,5 +36,9 @@ namespace Hash_n_Coder
         {
             Settings.resulttext = System.Net.WebUtility.HtmlDecode(Settings.inputText);
         }
+        public static void EscapeEncode()
+        { 
+            Settings.resulttext = System.Uri.EscapeDataString(Settings.inputText);
+        }
     }
 }
