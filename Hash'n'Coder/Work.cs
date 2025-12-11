@@ -40,5 +40,9 @@ namespace Hash_n_Coder
         { 
             Settings.resulttext = System.Uri.EscapeDataString(Settings.inputText);
         }
+        public static void EscapeDecode()
+        {
+            Settings.resulttext = System.Uri.UnescapeDataString(Settings.inputText);
+        }
     }
 }

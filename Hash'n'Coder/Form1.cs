@@ -130,6 +130,10 @@ namespace Hash_n_Coder
                         {
                             Work.EscapeEncode();
                         }
+                        if (DecodeBtn.Checked)
+                        {
+                            Work.EscapeDecode();
+                        }
                     }
                 }
                 ResultText.Text = Settings.resulttext;
