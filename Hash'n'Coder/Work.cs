@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Hash_n_Coder
 {
@@ -22,6 +23,14 @@ namespace Hash_n_Coder
         public static void UrlEncode()
         {
             Settings.resulttext = System.Net.WebUtility.UrlEncode(Settings.inputText);
+        }
+        public static void UrlDecode()
+        {
+            Settings.resulttext = System.Net.WebUtility.UrlDecode(Settings.inputText);
+        }
+        public static void HtmlEncode()
+        {
+            Settings.resulttext = System.Net.WebUtility.HtmlEncode(Settings.inputText);
         }
     }
 }

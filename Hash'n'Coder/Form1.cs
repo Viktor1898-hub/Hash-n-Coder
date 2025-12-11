@@ -108,6 +108,17 @@ namespace Hash_n_Coder
                         {
                             Work.UrlEncode();
                         }
+                        if (DecodeBtn.Checked)
+                        {
+                            Work.UrlDecode();
+                        }
+                    }
+                    if (BtnHtml.Checked)
+                    {
+                        if (EncodeBtn.Checked)
+                        {
+                            Work.HtmlEncode();
+                        }
                     }
                 }
                 ResultText.Text = Settings.resulttext;
