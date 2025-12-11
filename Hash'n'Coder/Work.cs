@@ -32,5 +32,9 @@ namespace Hash_n_Coder
         {
             Settings.resulttext = System.Net.WebUtility.HtmlEncode(Settings.inputText);
         }
+        public static void HtmlDecode()
+        {
+            Settings.resulttext = System.Net.WebUtility.HtmlDecode(Settings.inputText);
+        }
     }
 }

@@ -119,6 +119,10 @@ namespace Hash_n_Coder
                         {
                             Work.HtmlEncode();
                         }
+                        if (DecodeBtn.Checked)
+                        {
+                            Work.HtmlDecode();
+                        }
                     }
                 }
                 ResultText.Text = Settings.resulttext;
