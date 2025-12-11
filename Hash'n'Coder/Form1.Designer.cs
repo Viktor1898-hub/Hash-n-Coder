@@ -249,7 +249,7 @@
             this.BtnUnescape.ShadowDecoration.Enabled = true;
             this.BtnUnescape.Size = new System.Drawing.Size(96, 55);
             this.BtnUnescape.TabIndex = 4;
-            this.BtnUnescape.Text = "Escape";
+            this.BtnUnescape.Text = "Unescape";
             // 
             // RunBtn
             // 
@@ -481,7 +481,7 @@
             this.AESComboBox.FocusedColor = System.Drawing.Color.Black;
             this.AESComboBox.FocusedState.BorderColor = System.Drawing.Color.Black;
             this.AESComboBox.FocusedState.FillColor = System.Drawing.Color.Transparent;
-            this.AESComboBox.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AESComboBox.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold);
             this.AESComboBox.ForeColor = System.Drawing.Color.Silver;
             this.AESComboBox.ItemHeight = 30;
             this.AESComboBox.Items.AddRange(new object[] {
@@ -543,6 +543,7 @@
             this.KeyGenerateBtn.Size = new System.Drawing.Size(96, 55);
             this.KeyGenerateBtn.TabIndex = 18;
             this.KeyGenerateBtn.Text = "Generate key";
+            this.KeyGenerateBtn.Click += new System.EventHandler(this.KeyGenerateBtn_Click);
             // 
             // KeyPanel
             // 

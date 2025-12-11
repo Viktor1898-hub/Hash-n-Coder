@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -43,6 +44,15 @@ namespace Hash_n_Coder
         public static void EscapeDecode()
         {
             Settings.resulttext = System.Uri.UnescapeDataString(Settings.inputText);
+        }
+        public static void KeyGenerator()
+        {
+            using (Aes aes = Aes.Create())
+            {
+                aes.KeySize = Settings.KeySize;
+                aes.GenerateKey();
+                Settings.resulttext = Convert.ToString(BitConverter.ToString(aes.Key).Replace("-", ""));
+            }
         }
     }
 }

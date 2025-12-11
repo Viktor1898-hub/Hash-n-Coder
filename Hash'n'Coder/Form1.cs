@@ -140,6 +140,14 @@ namespace Hash_n_Coder
             }
             catch { }
         }
+
+        private void KeyGenerateBtn_Click(object sender, EventArgs e)
+        {
+           KeyText.Clear();
+            Settings.KeySize = int.Parse(AESComboBox.SelectedItem.ToString());
+            Work.KeyGenerator();
+            KeyText.Text = Settings.resulttext;
+        }
     }
 }
 
