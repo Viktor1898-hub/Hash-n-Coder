@@ -165,7 +165,7 @@ namespace Hash_n_Coder
                     if (DecodeBtn.Checked)
                     {
                         Settings.keytext = KeyText.Text;
-                        Work.CbcEncode();
+                        Work.CbcDecode();
                     }
                 }
                 ResultText.ForeColor = Color.Green;

@@ -38,7 +38,7 @@ namespace Hash_n_Coder
             Settings.resulttext = System.Net.WebUtility.HtmlDecode(Settings.inputText);
         }
         public static void EscapeEncode()
-        { 
+        {
             Settings.resulttext = System.Uri.EscapeDataString(Settings.inputText);
         }
         public static void EscapeDecode()
@@ -116,6 +116,28 @@ namespace Hash_n_Coder
                     Buffer.BlockCopy(aes.IV, 0, result, 0, aes.IV.Length);
                     Buffer.BlockCopy(cipherText, 0, result, aes.IV.Length, cipherText.Length);
                     Settings.resulttext = BitConverter.ToString(result).Replace("-", "");
+                }
+            }
+        }
+        public static void CbcDecode()
+        {
+            byte[] key = HexStringToBytes(Settings.keytext);
+            byte[] cipherTextWithIv = HexStringToBytes(Settings.inputText);
+            using (Aes aes = Aes.Create())
+            {
+                aes.KeySize = Settings.KeySize;
+                aes.Key = key;
+                aes.Mode = CipherMode.CBC;
+                aes.Padding = PaddingMode.PKCS7;
+                byte[] iv = new byte[aes.BlockSize / 8];
+                byte[] cipherText = new byte[cipherTextWithIv.Length - iv.Length];
+                Buffer.BlockCopy(cipherTextWithIv, 0, iv, 0, iv.Length);
+                Buffer.BlockCopy(cipherTextWithIv, iv.Length, cipherText, 0, cipherText.Length);
+                aes.IV = iv;
+                using (ICryptoTransform decryptor = aes.CreateDecryptor())
+                {
+                    byte[] plainText = decryptor.TransformFinalBlock(cipherText, 0, cipherText.Length);
+                    Settings.resulttext = Encoding.UTF8.GetString(plainText);
                 }
             }
         }
