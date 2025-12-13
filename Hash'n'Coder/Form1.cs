@@ -34,6 +34,7 @@ namespace Hash_n_Coder
             KeyPanel.Visible = false;
             EncodeBtn.Visible = true;
             DecodeBtn.Visible = true;
+            EncodeBtn.Checked = true;
         }
 
         private void AESBtn_Click(object sender, EventArgs e)
@@ -50,6 +51,7 @@ namespace Hash_n_Coder
             KeyPanel.Visible = true;
             EncodeBtn.Visible = true;
             DecodeBtn.Visible = true;
+            EncodeBtn.Checked = true;
         }
 
         private void HashingBtn_Click(object sender, EventArgs e)
@@ -58,6 +60,8 @@ namespace Hash_n_Coder
             KeyPanel.Visible = false;
             EncodeBtn.Visible = false;
             DecodeBtn.Visible = false;
+            EncodeBtn.Checked = false;
+            DecodeBtn.Checked = false;
         }
 
         private void PasteBtn_Click(object sender, EventArgs e)
@@ -89,8 +93,6 @@ namespace Hash_n_Coder
             try
             {
                 Settings.inputText = InputText.Text;
-                ResultText.WordWrap = false;
-                EncodeBtn.Checked = true;
                 if (BtnBase64.Checked)
                 {
                     if (EncodeBtn.Checked)
@@ -172,7 +174,6 @@ namespace Hash_n_Coder
                 }
                 if (HashingBtn.Checked)
                 {
-                    DecodeBtn.Checked = false;
                     Work.Hashing();
                 }
                 ResultText.ForeColor = Color.Green;
