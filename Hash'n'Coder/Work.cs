@@ -141,5 +141,20 @@ namespace Hash_n_Coder
                 }
             }
         }
+        public static string Hash(string input, HashAlgorithm hashAlg)
+        {
+            byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+            byte[] hashBytes = hashAlg.ComputeHash(inputBytes);
+            return BitConverter.ToString(hashBytes).Replace("-", "");
+        }
+        public static void Hashing()
+        {
+            Settings.resulttext = 
+                $"MD5: {Hash(Settings.inputText, MD5.Create())}" +
+                $"\r\nSHA1: {Hash(Settings.inputText, SHA1.Create())}" +
+                $"\r\nSHA256: {Hash(Settings.inputText, SHA256.Create())}" +
+                $"\r\nSHA384: {Hash(Settings.inputText, SHA384.Create())}" +
+                $"\r\nSHA512: {Hash(Settings.inputText, SHA512.Create())}";
+        }
     }
 }

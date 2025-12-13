@@ -89,6 +89,8 @@ namespace Hash_n_Coder
             try
             {
                 Settings.inputText = InputText.Text;
+                ResultText.WordWrap = false;
+                EncodeBtn.Checked = true;
                 if (BtnBase64.Checked)
                 {
                     if (EncodeBtn.Checked)
@@ -167,6 +169,11 @@ namespace Hash_n_Coder
                         Settings.keytext = KeyText.Text;
                         Work.CbcDecode();
                     }
+                }
+                if (HashingBtn.Checked)
+                {
+                    DecodeBtn.Checked = false;
+                    Work.Hashing();
                 }
                 ResultText.ForeColor = Color.Green;
                 ResultText.Text = Settings.resulttext;
