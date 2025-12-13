@@ -151,6 +151,23 @@ namespace Hash_n_Coder
                         Work.EbcDecode();
                     }   
                 }
+                if (CBCBtn.Checked)
+                {
+                    if (EncodeBtn.Checked)
+                    {
+                        if (string.IsNullOrEmpty(KeyText.Text))
+                        {
+                            KeyGenerateBtn_Click(sender, e);
+                        }
+                        Settings.keytext = KeyText.Text;
+                        Work.CbcEncode();
+                    }
+                    if (DecodeBtn.Checked)
+                    {
+                        Settings.keytext = KeyText.Text;
+                        Work.CbcEncode();
+                    }
+                }
                 ResultText.ForeColor = Color.Green;
                 ResultText.Text = Settings.resulttext;
             }

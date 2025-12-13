@@ -98,5 +98,26 @@ namespace Hash_n_Coder
                 }
             }
         }
+        public static void CbcEncode()
+        {
+            byte[] key = HexStringToBytes(Settings.keytext);
+            byte[] plainText = Encoding.UTF8.GetBytes(Settings.inputText);
+            using (Aes aes = Aes.Create())
+            {
+                aes.KeySize = Settings.KeySize;
+                aes.Key = key;
+                aes.Mode = CipherMode.CBC;
+                aes.Padding = PaddingMode.PKCS7;
+                aes.GenerateIV();
+                using (ICryptoTransform encryptor = aes.CreateEncryptor())
+                {
+                    byte[] cipherText = encryptor.TransformFinalBlock(plainText, 0, plainText.Length);
+                    byte[] result = new byte[aes.IV.Length + cipherText.Length];
+                    Buffer.BlockCopy(aes.IV, 0, result, 0, aes.IV.Length);
+                    Buffer.BlockCopy(cipherText, 0, result, aes.IV.Length, cipherText.Length);
+                    Settings.resulttext = BitConverter.ToString(result).Replace("-", "");
+                }
+            }
+        }
     }
 }
