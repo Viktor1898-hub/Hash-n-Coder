@@ -64,10 +64,8 @@ namespace Hash_n_Coder
             }
             return bytes;
         }
-
         public static void EbcEncode()
         {
-
             byte[] key = HexStringToBytes(Settings.keytext);
             byte[] plainText = Encoding.UTF8.GetBytes(Settings.inputText);
             using (Aes aes = Aes.Create())
@@ -80,6 +78,23 @@ namespace Hash_n_Coder
                 {
                     byte[] cipherText = encryptor.TransformFinalBlock(plainText, 0, plainText.Length);
                     Settings.resulttext = BitConverter.ToString(cipherText).Replace("-", "");
+                }
+            }
+        }
+        public static void EbcDecode()
+        {
+            byte[] key = HexStringToBytes(Settings.keytext);
+            byte[] cipherText = HexStringToBytes(Settings.inputText);
+            using (Aes aes = Aes.Create())
+            {
+                aes.KeySize = Settings.KeySize;
+                aes.Key = key;
+                aes.Mode = CipherMode.ECB;
+                aes.Padding = PaddingMode.PKCS7;
+                using (ICryptoTransform decryptor = aes.CreateDecryptor())
+                {
+                    byte[] plainText = decryptor.TransformFinalBlock(cipherText, 0, cipherText.Length);
+                    Settings.resulttext = Encoding.UTF8.GetString(plainText);
                 }
             }
         }

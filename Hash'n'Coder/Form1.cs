@@ -145,11 +145,25 @@ namespace Hash_n_Coder
                         Settings.keytext = KeyText.Text;
                         Work.EbcEncode();
                     }
+                    if (DecodeBtn.Checked)
+                    {
+                        Settings.keytext = KeyText.Text;
+                        Work.EbcDecode();
+                    }   
                 }
                 ResultText.ForeColor = Color.Green;
                 ResultText.Text = Settings.resulttext;
             }
-            catch { }
+            catch (System.FormatException)
+            {
+                ResultText.ForeColor = Color.Red;
+                ResultText.Text = "Format Exception.";
+            }
+            catch (System.Security.Cryptography.CryptographicException)
+            {
+                ResultText.ForeColor = Color.Red;
+                ResultText.Text = "Cryptographic Exception. Please enter the correct decryption key.";
+            }
         }
 
         private void KeyGenerateBtn_Click(object sender, EventArgs e)
