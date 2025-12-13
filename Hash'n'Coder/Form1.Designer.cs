@@ -518,7 +518,7 @@
             this.KeyText.Name = "KeyText";
             this.KeyText.PlaceholderForeColor = System.Drawing.Color.White;
             this.KeyText.PlaceholderText = "";
-            this.KeyText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.KeyText.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.KeyText.SelectedText = "";
             this.KeyText.ShadowDecoration.Enabled = true;
             this.KeyText.Size = new System.Drawing.Size(659, 86);

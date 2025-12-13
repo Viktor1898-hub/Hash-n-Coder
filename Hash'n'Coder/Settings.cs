@@ -8,7 +8,7 @@ namespace Hash_n_Coder
 {
     internal class Settings
     {
-        public static string inputText = "", resulttext = "";
+        public static string inputText = "", resulttext = "", keytext = "";
         public static int KeySize = 0;
     }
 }

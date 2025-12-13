@@ -51,7 +51,36 @@ namespace Hash_n_Coder
             {
                 aes.KeySize = Settings.KeySize;
                 aes.GenerateKey();
-                Settings.resulttext = Convert.ToString(BitConverter.ToString(aes.Key).Replace("-", ""));
+                Settings.keytext = Convert.ToString(BitConverter.ToString(aes.Key).Replace("-", ""));
+            }
+        }
+        public static byte[] HexStringToBytes(string hex)
+        {
+            int length = hex.Length;
+            byte[] bytes = new byte[length / 2];
+            for (int i = 0; i < length; i += 2)
+            {
+                bytes[i / 2] = Convert.ToByte(hex.Substring(i, 2), 16);
+            }
+            return bytes;
+        }
+
+        public static void EbcEncode()
+        {
+
+            byte[] key = HexStringToBytes(Settings.keytext);
+            byte[] plainText = Encoding.UTF8.GetBytes(Settings.inputText);
+            using (Aes aes = Aes.Create())
+            {
+                aes.KeySize = Settings.KeySize;
+                aes.Key = key;
+                aes.Mode = CipherMode.ECB;
+                aes.Padding = PaddingMode.PKCS7;
+                using (ICryptoTransform encryptor = aes.CreateEncryptor())
+                {
+                    byte[] cipherText = encryptor.TransformFinalBlock(plainText, 0, plainText.Length);
+                    Settings.resulttext = BitConverter.ToString(cipherText).Replace("-", "");
+                }
             }
         }
     }

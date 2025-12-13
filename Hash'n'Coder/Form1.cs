@@ -89,53 +89,64 @@ namespace Hash_n_Coder
             try
             {
                 Settings.inputText = InputText.Text;
-                if (EncodBtn.Checked)
+                if (BtnBase64.Checked)
                 {
-                    if (BtnBase64.Checked)
+                    if (EncodeBtn.Checked)
                     {
-                        if (EncodeBtn.Checked)
-                        {
-                            Work.Encode64();
-                        }
-                        else if (DecodeBtn.Checked)
-                        {
-                            Work.Decode64();
-                        }
+                        Work.Encode64();
                     }
-                    if (BtnUrl.Checked)
+                    else if (DecodeBtn.Checked)
                     {
-                        if (EncodeBtn.Checked)
-                        {
-                            Work.UrlEncode();
-                        }
-                        if (DecodeBtn.Checked)
-                        {
-                            Work.UrlDecode();
-                        }
-                    }
-                    if (BtnHtml.Checked)
-                    {
-                        if (EncodeBtn.Checked)
-                        {
-                            Work.HtmlEncode();
-                        }
-                        if (DecodeBtn.Checked)
-                        {
-                            Work.HtmlDecode();
-                        }
-                    }
-                    if (BtnUnescape.Checked)
-                    {
-                        if (EncodeBtn.Checked)
-                        {
-                            Work.EscapeEncode();
-                        }
-                        if (DecodeBtn.Checked)
-                        {
-                            Work.EscapeDecode();
-                        }
+                        Work.Decode64();
                     }
                 }
+                if (BtnUrl.Checked)
+                {
+                    if (EncodeBtn.Checked)
+                    {
+                        Work.UrlEncode();
+                    }
+                    if (DecodeBtn.Checked)
+                    {
+                        Work.UrlDecode();
+                    }
+                }
+                if (BtnHtml.Checked)
+                {
+                    if (EncodeBtn.Checked)
+                    {
+                        Work.HtmlEncode();
+                    }
+                    if (DecodeBtn.Checked)
+                    {
+                        Work.HtmlDecode();
+                    }
+                }
+                if (BtnUnescape.Checked)
+                {
+                    if (EncodeBtn.Checked)
+                    {
+                        Work.EscapeEncode();
+                    }
+                    if (DecodeBtn.Checked)
+                    {
+                        Work.EscapeDecode();
+                    }
+                }
+
+                if (EBCBtn.Checked)
+                {
+                    if (EncodeBtn.Checked)
+                    {
+                        if (string.IsNullOrEmpty(KeyText.Text))
+                        {
+                            KeyGenerateBtn_Click(sender, e);
+                        }
+                        Settings.keytext = KeyText.Text;
+                        Work.EbcEncode();
+                    }
+                }
+                ResultText.ForeColor = Color.Green;
                 ResultText.Text = Settings.resulttext;
             }
             catch { }
@@ -143,10 +154,10 @@ namespace Hash_n_Coder
 
         private void KeyGenerateBtn_Click(object sender, EventArgs e)
         {
-           KeyText.Clear();
+            KeyText.Clear();
             Settings.KeySize = int.Parse(AESComboBox.SelectedItem.ToString());
             Work.KeyGenerator();
-            KeyText.Text = Settings.resulttext;
+            KeyText.Text = Settings.keytext;
         }
     }
 }
