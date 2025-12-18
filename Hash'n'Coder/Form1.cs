@@ -35,6 +35,7 @@ namespace Hash_n_Coder
             EncodeBtn.Visible = true;
             DecodeBtn.Visible = true;
             EncodeBtn.Checked = true;
+            ResultText.Text = "";
         }
 
         private void AESBtn_Click(object sender, EventArgs e)
@@ -52,6 +53,7 @@ namespace Hash_n_Coder
             EncodeBtn.Visible = true;
             DecodeBtn.Visible = true;
             EncodeBtn.Checked = true;
+            ResultText.Text = "";
         }
 
         private void HashingBtn_Click(object sender, EventArgs e)
@@ -62,6 +64,7 @@ namespace Hash_n_Coder
             DecodeBtn.Visible = false;
             EncodeBtn.Checked = false;
             DecodeBtn.Checked = false;
+            ResultText.Text = "";
         }
 
         private void PasteBtn_Click(object sender, EventArgs e)
@@ -188,6 +191,11 @@ namespace Hash_n_Coder
             {
                 ResultText.ForeColor = Color.Red;
                 ResultText.Text = "Cryptographic Exception. Please enter the correct decryption key.";
+            }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                ResultText.ForeColor = Color.Red;
+                ResultText.Text = "Argument Out Of Range Exception.";
             }
         }
 

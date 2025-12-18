@@ -263,7 +263,7 @@
             this.RunBtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.RunBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RunBtn.ForeColor = System.Drawing.Color.White;
-            this.RunBtn.Location = new System.Drawing.Point(49, 627);
+            this.RunBtn.Location = new System.Drawing.Point(54, 627);
             this.RunBtn.Name = "RunBtn";
             this.RunBtn.ShadowDecoration.Enabled = true;
             this.RunBtn.Size = new System.Drawing.Size(121, 55);
