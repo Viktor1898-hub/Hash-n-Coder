@@ -36,6 +36,7 @@ namespace Hash_n_Coder
             DecodeBtn.Visible = true;
             EncodeBtn.Checked = true;
             ResultText.Text = "";
+            InputText.Text = "";
         }
 
         private void AESBtn_Click(object sender, EventArgs e)
@@ -54,6 +55,7 @@ namespace Hash_n_Coder
             DecodeBtn.Visible = true;
             EncodeBtn.Checked = true;
             ResultText.Text = "";
+            InputText.Text = "";
         }
 
         private void HashingBtn_Click(object sender, EventArgs e)
@@ -65,6 +67,7 @@ namespace Hash_n_Coder
             EncodeBtn.Checked = false;
             DecodeBtn.Checked = false;
             ResultText.Text = "";
+            InputText.Text = "";
         }
 
         private void PasteBtn_Click(object sender, EventArgs e)

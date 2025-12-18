@@ -30,7 +30,6 @@ namespace Hash_n_Coder
         {
             Settings.resulttext = System.Net.WebUtility.UrlDecode(Settings.inputText);
         }
-        //
         public static void HtmlEncode()
         {
             var sb = new StringBuilder(Settings.inputText.Length * 6);
@@ -50,7 +49,6 @@ namespace Hash_n_Coder
                 return ((char)charCode).ToString();
             });
         }
-        //
         public static void EscapeEncode()
         {
             Settings.resulttext = System.Uri.EscapeDataString(Settings.inputText);
