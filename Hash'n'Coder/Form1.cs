@@ -69,7 +69,7 @@ namespace Hash_n_Coder
 
         private void PasteBtn_Click(object sender, EventArgs e)
         {
-            if (Clipboard.ContainsText())
+            if (Clipboard.ContainsText()) 
             {
                 InputText.Text = Clipboard.GetText();
             }

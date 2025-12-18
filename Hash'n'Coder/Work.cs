@@ -29,14 +29,23 @@ namespace Hash_n_Coder
         {
             Settings.resulttext = System.Net.WebUtility.UrlDecode(Settings.inputText);
         }
+        //
         public static void HtmlEncode()
         {
-            Settings.resulttext = System.Net.WebUtility.HtmlEncode(Settings.inputText);
+            var sb = new StringBuilder(Settings.inputText.Length * 6);
+            for (int i = 0; i < Settings.inputText.Length; i++)
+            {
+                sb.Append("&#");
+                sb.Append(((int)Settings.inputText[i]).ToString());
+                sb.Append(";");
+            }
+            Settings.resulttext = sb.ToString();
         }
         public static void HtmlDecode()
         {
             Settings.resulttext = System.Net.WebUtility.HtmlDecode(Settings.inputText);
         }
+        //
         public static void EscapeEncode()
         {
             Settings.resulttext = System.Uri.EscapeDataString(Settings.inputText);
