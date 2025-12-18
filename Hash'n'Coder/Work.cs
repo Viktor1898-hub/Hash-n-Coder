@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -43,7 +44,11 @@ namespace Hash_n_Coder
         }
         public static void HtmlDecode()
         {
-            Settings.resulttext = System.Net.WebUtility.HtmlDecode(Settings.inputText);
+            Settings.resulttext = Regex.Replace(Settings.inputText, "&#(\\d+);", match =>
+            {
+                int charCode = int.Parse(match.Groups[1].Value);
+                return ((char)charCode).ToString();
+            });
         }
         //
         public static void EscapeEncode()
