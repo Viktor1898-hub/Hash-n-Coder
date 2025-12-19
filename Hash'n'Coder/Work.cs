@@ -60,11 +60,14 @@ namespace Hash_n_Coder
         }
         public static string EscapeEncode(string text)
         {
-            return System.Uri.EscapeDataString(text);
-        }
-        public static string EscapeDecode(string text)
-        {
-            return System.Uri.UnescapeDataString(text);
+            if (Settings.encode)
+            {
+                return System.Uri.EscapeDataString(text);
+            }
+            else
+            {
+                return System.Uri.UnescapeDataString(text);
+            }
         }
         public static string KeyGenerator()
         {

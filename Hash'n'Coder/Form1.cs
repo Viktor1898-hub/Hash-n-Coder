@@ -119,16 +119,8 @@ namespace Hash_n_Coder
                 }
                 if (BtnUnescape.Checked)
                 {
-                    if (EncodeBtn.Checked)
-                    {
-                        ResultText.Text = Work.EscapeEncode(Settings.inputText);
-                    }
-                    if (DecodeBtn.Checked)
-                    {
-                        ResultText.Text = Work.EscapeDecode(Settings.inputText);
-                    }
+                    ResultText.Text = Work.EscapeEncode(Settings.inputText);
                 }
-
                 if (EBCBtn.Checked)
                 {
                     if (string.IsNullOrEmpty(KeyText.Text) && EncodeBtn.Checked)
