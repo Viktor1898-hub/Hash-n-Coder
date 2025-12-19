@@ -157,33 +157,17 @@ namespace Hash_n_Coder
                         KeyGenerateBtn_Click(sender, e);
                     }
                     Settings.keytext = KeyText.Text;
-                    ResultText.Text = Work.EbcEncode(Settings.inputText);
-
-                    //if (EncodeBtn.Checked)
-                    //{
-                    //}
-                    //if (DecodeBtn.Checked)
-                    //{
-                    //    Settings.keytext = KeyText.Text;
-                    //    ResultText.Text = Work.EbcDecode(Settings.inputText);
-                    //}   
+                    ResultText.Text = Work.EbcEncode(Settings.inputText);   
                 }
                 if (CBCBtn.Checked)
                 {
-                    if (EncodeBtn.Checked)
+                    Settings.encode = EncodeBtn.Checked;
+                    if (string.IsNullOrEmpty(KeyText.Text) && EncodeBtn.Checked)
                     {
-                        if (string.IsNullOrEmpty(KeyText.Text))
-                        {
-                            KeyGenerateBtn_Click(sender, e);
-                        }
-                        Settings.keytext = KeyText.Text;
-                        ResultText.Text = Work.CbcEncode(Settings.inputText);
+                        KeyGenerateBtn_Click(sender, e);
                     }
-                    if (DecodeBtn.Checked)
-                    {
-                        Settings.keytext = KeyText.Text;
-                        ResultText.Text = Work.CbcDecode(Settings.inputText);
-                    }
+                    Settings.keytext = KeyText.Text;
+                    ResultText.Text = Work.CbcEncode(Settings.inputText);
                 }
                 if (HashingBtn.Checked)
                 {

@@ -105,57 +105,42 @@ namespace Hash_n_Coder
                 }
             }
         }
-        //public static string EbcDecode(string text)
-        //{
-        //    byte[] key = HexStringToBytes(Settings.keytext);
-        //    using (Aes aes = Aes.Create())
-        //    {
-        //        aes.KeySize = Settings.KeySize;
-        //        aes.Key = key;
-        //        aes.Mode = CipherMode.ECB;
-        //        aes.Padding = PaddingMode.PKCS7;
-        //    }
-        //}
         public static string CbcEncode(string text)
         {
             byte[] key = HexStringToBytes(Settings.keytext);
-            byte[] plainText = Encoding.UTF8.GetBytes(text);
             using (Aes aes = Aes.Create())
             {
                 aes.KeySize = Settings.KeySize;
                 aes.Key = key;
                 aes.Mode = CipherMode.CBC;
                 aes.Padding = PaddingMode.PKCS7;
-                aes.GenerateIV();
-                using (ICryptoTransform encryptor = aes.CreateEncryptor())
+                if (Settings.encode)
                 {
-                    byte[] cipherText = encryptor.TransformFinalBlock(plainText, 0, plainText.Length);
-                    byte[] result = new byte[aes.IV.Length + cipherText.Length];
-                    Buffer.BlockCopy(aes.IV, 0, result, 0, aes.IV.Length);
-                    Buffer.BlockCopy(cipherText, 0, result, aes.IV.Length, cipherText.Length);
-                    return BitConverter.ToString(result).Replace("-", "");
+                    aes.GenerateIV();
+                    using (ICryptoTransform encryptor = aes.CreateEncryptor())
+                    {
+                        byte[] plainText = Encoding.UTF8.GetBytes(text);
+                        byte[] cipherText = encryptor.TransformFinalBlock(plainText, 0, plainText.Length);
+                        byte[] result = new byte[aes.IV.Length + cipherText.Length];
+                        Buffer.BlockCopy(aes.IV, 0, result, 0, aes.IV.Length);
+                        Buffer.BlockCopy(cipherText, 0, result, aes.IV.Length, cipherText.Length);
+                        return BitConverter.ToString(result).Replace("-", "");
+                    }
                 }
-            }
-        }
-        public static string CbcDecode(string text)
-        {
-            byte[] key = HexStringToBytes(Settings.keytext);
-            byte[] cipherTextWithIv = HexStringToBytes(text);
-            using (Aes aes = Aes.Create())
-            {
-                aes.KeySize = Settings.KeySize;
-                aes.Key = key;
-                aes.Mode = CipherMode.CBC;
-                aes.Padding = PaddingMode.PKCS7;
-                byte[] iv = new byte[aes.BlockSize / 8];
-                byte[] cipherText = new byte[cipherTextWithIv.Length - iv.Length];
-                Buffer.BlockCopy(cipherTextWithIv, 0, iv, 0, iv.Length);
-                Buffer.BlockCopy(cipherTextWithIv, iv.Length, cipherText, 0, cipherText.Length);
-                aes.IV = iv;
-                using (ICryptoTransform decryptor = aes.CreateDecryptor())
+                else
                 {
-                    byte[] plainText = decryptor.TransformFinalBlock(cipherText, 0, cipherText.Length);
-                    return Encoding.UTF8.GetString(plainText);
+                    byte[] cipherTextWithIv = HexStringToBytes(text);
+                    byte[] iv = new byte[aes.BlockSize / 8];
+                    byte[] cipherText = new byte[cipherTextWithIv.Length - iv.Length];
+                    Buffer.BlockCopy(cipherTextWithIv, 0, iv, 0, iv.Length);
+                    Buffer.BlockCopy(cipherTextWithIv, iv.Length, cipherText, 0, cipherText.Length);
+                    aes.IV = iv;
+                    using (ICryptoTransform decryptor = aes.CreateDecryptor())
+                    {
+                        byte[] plainText = decryptor.TransformFinalBlock(cipherText, 0, cipherText.Length);
+                        return Encoding.UTF8.GetString(plainText);
+                    }
+
                 }
             }
         }
