@@ -38,22 +38,25 @@ namespace Hash_n_Coder
         }
         public static string HtmlEncode(string text)
         {
-            var sb = new StringBuilder(text.Length * 6);
-            for (int i = 0; i < text.Length; i++)
+            if (Settings.encode)
             {
-                sb.Append("&#");
-                sb.Append(((int)text[i]).ToString());
-                sb.Append(";");
+                var sb = new StringBuilder(text.Length * 6);
+                for (int i = 0; i < text.Length; i++)
+                {
+                    sb.Append("&#");
+                    sb.Append(((int)text[i]).ToString());
+                    sb.Append(";");
+                }
+                return sb.ToString();
             }
-            return sb.ToString();
-        }
-        public static string HtmlDecode(string text)
-        {
-            return Regex.Replace(text, "&#(\\d+);", match =>
+            else
             {
-                int charCode = int.Parse(match.Groups[1].Value);
-                return ((char)charCode).ToString();
-            });
+                return Regex.Replace(text, "&#(\\d+);", match =>
+                {
+                    int charCode = int.Parse(match.Groups[1].Value);
+                    return ((char)charCode).ToString();
+                });
+            }
         }
         public static string EscapeEncode(string text)
         {
