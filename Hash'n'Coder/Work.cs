@@ -12,58 +12,58 @@ namespace Hash_n_Coder
 {
     internal class Work
     {
-        public static void Encode64()
+        public static string Encode64(string text)
         {
-            var plainTextBytes = Encoding.UTF8.GetBytes(Settings.inputText);
-            Settings.resulttext = Convert.ToBase64String(plainTextBytes);
+            var plainTextBytes = Encoding.UTF8.GetBytes(text);
+            return Convert.ToBase64String(plainTextBytes);
         }
-        public static void Decode64()
+        public static string Decode64(string text)
         {
-            var base64EncodedBytes = Convert.FromBase64String(Settings.inputText);
-            Settings.resulttext = Encoding.UTF8.GetString(base64EncodedBytes);
+            var base64EncodedBytes = Convert.FromBase64String(text);
+            return Encoding.UTF8.GetString(base64EncodedBytes);
         }
-        public static void UrlEncode()
+        public static string UrlEncode(string text)
         {
-            Settings.resulttext = System.Net.WebUtility.UrlEncode(Settings.inputText);
+            return System.Net.WebUtility.UrlEncode(text);
         }
-        public static void UrlDecode()
+        public static string UrlDecode(string text)
         {
-            Settings.resulttext = System.Net.WebUtility.UrlDecode(Settings.inputText);
+            return System.Net.WebUtility.UrlDecode(text);
         }
-        public static void HtmlEncode()
+        public static string HtmlEncode(string text)
         {
-            var sb = new StringBuilder(Settings.inputText.Length * 6);
-            for (int i = 0; i < Settings.inputText.Length; i++)
+            var sb = new StringBuilder(text.Length * 6);
+            for (int i = 0; i < text.Length; i++)
             {
                 sb.Append("&#");
-                sb.Append(((int)Settings.inputText[i]).ToString());
+                sb.Append(((int)text[i]).ToString());
                 sb.Append(";");
             }
-            Settings.resulttext = sb.ToString();
+            return sb.ToString();
         }
-        public static void HtmlDecode()
+        public static string HtmlDecode(string text)
         {
-            Settings.resulttext = Regex.Replace(Settings.inputText, "&#(\\d+);", match =>
+            return Regex.Replace(text, "&#(\\d+);", match =>
             {
                 int charCode = int.Parse(match.Groups[1].Value);
                 return ((char)charCode).ToString();
             });
         }
-        public static void EscapeEncode()
+        public static string EscapeEncode(string text)
         {
-            Settings.resulttext = System.Uri.EscapeDataString(Settings.inputText);
+            return System.Uri.EscapeDataString(text);
         }
-        public static void EscapeDecode()
+        public static string EscapeDecode(string text)
         {
-            Settings.resulttext = System.Uri.UnescapeDataString(Settings.inputText);
+            return System.Uri.UnescapeDataString(text);
         }
-        public static void KeyGenerator()
+        public static string KeyGenerator()
         {
             using (Aes aes = Aes.Create())
             {
                 aes.KeySize = Settings.KeySize;
                 aes.GenerateKey();
-                Settings.keytext = Convert.ToString(BitConverter.ToString(aes.Key).Replace("-", ""));
+                return Convert.ToString(BitConverter.ToString(aes.Key).Replace("-", ""));
             }
         }
         public static byte[] HexStringToBytes(string hex)
@@ -76,10 +76,10 @@ namespace Hash_n_Coder
             }
             return bytes;
         }
-        public static void EbcEncode()
+        public static string EbcEncode(string text)
         {
             byte[] key = HexStringToBytes(Settings.keytext);
-            byte[] plainText = Encoding.UTF8.GetBytes(Settings.inputText);
+            byte[] plainText = Encoding.UTF8.GetBytes(text);
             using (Aes aes = Aes.Create())
             {
                 aes.KeySize = Settings.KeySize;
@@ -89,14 +89,14 @@ namespace Hash_n_Coder
                 using (ICryptoTransform encryptor = aes.CreateEncryptor())
                 {
                     byte[] cipherText = encryptor.TransformFinalBlock(plainText, 0, plainText.Length);
-                    Settings.resulttext = BitConverter.ToString(cipherText).Replace("-", "");
+                    return BitConverter.ToString(cipherText).Replace("-", "");
                 }
             }
         }
-        public static void EbcDecode()
+        public static string EbcDecode(string text)
         {
             byte[] key = HexStringToBytes(Settings.keytext);
-            byte[] cipherText = HexStringToBytes(Settings.inputText);
+            byte[] cipherText = HexStringToBytes(text);
             using (Aes aes = Aes.Create())
             {
                 aes.KeySize = Settings.KeySize;
@@ -106,14 +106,14 @@ namespace Hash_n_Coder
                 using (ICryptoTransform decryptor = aes.CreateDecryptor())
                 {
                     byte[] plainText = decryptor.TransformFinalBlock(cipherText, 0, cipherText.Length);
-                    Settings.resulttext = Encoding.UTF8.GetString(plainText);
+                    return Encoding.UTF8.GetString(plainText);
                 }
             }
         }
-        public static void CbcEncode()
+        public static string CbcEncode(string text)
         {
             byte[] key = HexStringToBytes(Settings.keytext);
-            byte[] plainText = Encoding.UTF8.GetBytes(Settings.inputText);
+            byte[] plainText = Encoding.UTF8.GetBytes(text);
             using (Aes aes = Aes.Create())
             {
                 aes.KeySize = Settings.KeySize;
@@ -127,14 +127,14 @@ namespace Hash_n_Coder
                     byte[] result = new byte[aes.IV.Length + cipherText.Length];
                     Buffer.BlockCopy(aes.IV, 0, result, 0, aes.IV.Length);
                     Buffer.BlockCopy(cipherText, 0, result, aes.IV.Length, cipherText.Length);
-                    Settings.resulttext = BitConverter.ToString(result).Replace("-", "");
+                    return BitConverter.ToString(result).Replace("-", "");
                 }
             }
         }
-        public static void CbcDecode()
+        public static string CbcDecode(string text)
         {
             byte[] key = HexStringToBytes(Settings.keytext);
-            byte[] cipherTextWithIv = HexStringToBytes(Settings.inputText);
+            byte[] cipherTextWithIv = HexStringToBytes(text);
             using (Aes aes = Aes.Create())
             {
                 aes.KeySize = Settings.KeySize;
@@ -149,7 +149,7 @@ namespace Hash_n_Coder
                 using (ICryptoTransform decryptor = aes.CreateDecryptor())
                 {
                     byte[] plainText = decryptor.TransformFinalBlock(cipherText, 0, cipherText.Length);
-                    Settings.resulttext = Encoding.UTF8.GetString(plainText);
+                    return Encoding.UTF8.GetString(plainText);
                 }
             }
         }
@@ -159,9 +159,9 @@ namespace Hash_n_Coder
             byte[] hashBytes = hashAlg.ComputeHash(inputBytes);
             return BitConverter.ToString(hashBytes).Replace("-", "");
         }
-        public static void Hashing()
+        public static string Hashing()
         {
-            Settings.resulttext = 
+            return 
                 $"MD5: {Hash(Settings.inputText, MD5.Create())}" +
                 $"\r\nSHA1: {Hash(Settings.inputText, SHA1.Create())}" +
                 $"\r\nSHA256: {Hash(Settings.inputText, SHA256.Create())}" +

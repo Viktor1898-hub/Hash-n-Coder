@@ -19,7 +19,7 @@ namespace Hash_n_Coder
         {
             InitializeComponent();
         }
-
+        #region EncodeBtn 
         private void EncodBtn_Click(object sender, EventArgs e)
         {
             BtnBase64.Checked = true;
@@ -38,7 +38,9 @@ namespace Hash_n_Coder
             ResultText.Text = "";
             InputText.Text = "";
         }
+        #endregion
 
+        #region AESBtn
         private void AESBtn_Click(object sender, EventArgs e)
         {
             EBCBtn.Checked = true;
@@ -57,7 +59,9 @@ namespace Hash_n_Coder
             ResultText.Text = "";
             InputText.Text = "";
         }
+        #endregion
 
+        #region HashingBtn
         private void HashingBtn_Click(object sender, EventArgs e)
         {
             AlgorPanel.Visible = false;
@@ -69,6 +73,7 @@ namespace Hash_n_Coder
             ResultText.Text = "";
             InputText.Text = "";
         }
+        #endregion
 
         private void PasteBtn_Click(object sender, EventArgs e)
         {
@@ -103,44 +108,44 @@ namespace Hash_n_Coder
                 {
                     if (EncodeBtn.Checked)
                     {
-                        Work.Encode64();
+                        ResultText.Text = Work.Encode64(Settings.inputText);
                     }
                     else if (DecodeBtn.Checked)
                     {
-                        Work.Decode64();
+                        ResultText.Text = Work.Decode64(Settings.inputText);
                     }
                 }
                 if (BtnUrl.Checked)
                 {
                     if (EncodeBtn.Checked)
                     {
-                        Work.UrlEncode();
+                        ResultText.Text = Work.UrlEncode(Settings.inputText);
                     }
                     if (DecodeBtn.Checked)
                     {
-                        Work.UrlDecode();
+                        ResultText.Text = Work.UrlDecode(Settings.inputText);
                     }
                 }
                 if (BtnHtml.Checked)
                 {
                     if (EncodeBtn.Checked)
                     {
-                        Work.HtmlEncode();
+                        ResultText.Text = Work.HtmlEncode(Settings.inputText);
                     }
                     if (DecodeBtn.Checked)
                     {
-                        Work.HtmlDecode();
+                        ResultText.Text = Work.HtmlDecode(Settings.inputText);
                     }
                 }
                 if (BtnUnescape.Checked)
                 {
                     if (EncodeBtn.Checked)
                     {
-                        Work.EscapeEncode();
+                        ResultText.Text = Work.EscapeEncode(Settings.inputText);
                     }
                     if (DecodeBtn.Checked)
                     {
-                        Work.EscapeDecode();
+                        ResultText.Text = Work.EscapeDecode(Settings.inputText);
                     }
                 }
 
@@ -153,12 +158,12 @@ namespace Hash_n_Coder
                             KeyGenerateBtn_Click(sender, e);
                         }
                         Settings.keytext = KeyText.Text;
-                        Work.EbcEncode();
+                        ResultText.Text = Work.EbcEncode(Settings.inputText);
                     }
                     if (DecodeBtn.Checked)
                     {
                         Settings.keytext = KeyText.Text;
-                        Work.EbcDecode();
+                        ResultText.Text = Work.EbcDecode(Settings.inputText);
                     }   
                 }
                 if (CBCBtn.Checked)
@@ -170,20 +175,19 @@ namespace Hash_n_Coder
                             KeyGenerateBtn_Click(sender, e);
                         }
                         Settings.keytext = KeyText.Text;
-                        Work.CbcEncode();
+                        ResultText.Text = Work.CbcEncode(Settings.inputText);
                     }
                     if (DecodeBtn.Checked)
                     {
                         Settings.keytext = KeyText.Text;
-                        Work.CbcDecode();
+                        ResultText.Text = Work.CbcDecode(Settings.inputText);
                     }
                 }
                 if (HashingBtn.Checked)
                 {
-                    Work.Hashing();
+                    ResultText.Text = Work.Hashing();
                 }
                 ResultText.ForeColor = Color.Green;
-                ResultText.Text = Settings.resulttext;
             }
             catch (System.FormatException)
             {
@@ -206,8 +210,7 @@ namespace Hash_n_Coder
         {
             KeyText.Clear();
             Settings.KeySize = int.Parse(AESComboBox.SelectedItem.ToString());
-            Work.KeyGenerator();
-            KeyText.Text = Settings.keytext;
+            KeyText.Text = Work.KeyGenerator();
         }
     }
 }
