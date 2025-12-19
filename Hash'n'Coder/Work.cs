@@ -14,13 +14,16 @@ namespace Hash_n_Coder
     {
         public static string Encode64(string text)
         {
-            var plainTextBytes = Encoding.UTF8.GetBytes(text);
-            return Convert.ToBase64String(plainTextBytes);
-        }
-        public static string Decode64(string text)
-        {
-            var base64EncodedBytes = Convert.FromBase64String(text);
-            return Encoding.UTF8.GetString(base64EncodedBytes);
+            if (Settings.encode)
+            {
+                var plainTextBytes = Encoding.UTF8.GetBytes(text);
+                return Convert.ToBase64String(plainTextBytes);
+            }
+            else
+            {
+                var base64EncodedBytes = Convert.FromBase64String(text);
+                return Encoding.UTF8.GetString(base64EncodedBytes);
+            }
         }
         public static string UrlEncode(string text)
         {

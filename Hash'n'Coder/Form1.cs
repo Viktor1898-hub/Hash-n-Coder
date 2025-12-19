@@ -103,17 +103,11 @@ namespace Hash_n_Coder
         {
             try
             {
+                Settings.encode = EncodeBtn.Checked;
                 Settings.inputText = InputText.Text;
                 if (BtnBase64.Checked)
                 {
-                    if (EncodeBtn.Checked)
-                    {
-                        ResultText.Text = Work.Encode64(Settings.inputText);
-                    }
-                    else if (DecodeBtn.Checked)
-                    {
-                        ResultText.Text = Work.Decode64(Settings.inputText);
-                    }
+                    ResultText.Text = Work.Encode64(Settings.inputText);
                 }
                 if (BtnUrl.Checked)
                 {
@@ -151,7 +145,6 @@ namespace Hash_n_Coder
 
                 if (EBCBtn.Checked)
                 {
-                    Settings.encode = EncodeBtn.Checked;
                     if (string.IsNullOrEmpty(KeyText.Text) && EncodeBtn.Checked)
                     {
                         KeyGenerateBtn_Click(sender, e);
@@ -161,7 +154,6 @@ namespace Hash_n_Coder
                 }
                 if (CBCBtn.Checked)
                 {
-                    Settings.encode = EncodeBtn.Checked;
                     if (string.IsNullOrEmpty(KeyText.Text) && EncodeBtn.Checked)
                     {
                         KeyGenerateBtn_Click(sender, e);
