@@ -151,20 +151,22 @@ namespace Hash_n_Coder
 
                 if (EBCBtn.Checked)
                 {
-                    if (EncodeBtn.Checked)
+                    Settings.encode = EncodeBtn.Checked;
+                    if (string.IsNullOrEmpty(KeyText.Text) && EncodeBtn.Checked)
                     {
-                        if (string.IsNullOrEmpty(KeyText.Text))
-                        {
-                            KeyGenerateBtn_Click(sender, e);
-                        }
-                        Settings.keytext = KeyText.Text;
-                        ResultText.Text = Work.EbcEncode(Settings.inputText);
+                        KeyGenerateBtn_Click(sender, e);
                     }
-                    if (DecodeBtn.Checked)
-                    {
-                        Settings.keytext = KeyText.Text;
-                        ResultText.Text = Work.EbcDecode(Settings.inputText);
-                    }   
+                    Settings.keytext = KeyText.Text;
+                    ResultText.Text = Work.EbcEncode(Settings.inputText);
+
+                    //if (EncodeBtn.Checked)
+                    //{
+                    //}
+                    //if (DecodeBtn.Checked)
+                    //{
+                    //    Settings.keytext = KeyText.Text;
+                    //    ResultText.Text = Work.EbcDecode(Settings.inputText);
+                    //}   
                 }
                 if (CBCBtn.Checked)
                 {

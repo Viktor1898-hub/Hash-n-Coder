@@ -12,5 +12,6 @@ namespace Hash_n_Coder
         public static string resulttext = "";
         public static string keytext = "";
         public static int KeySize = 0;
+        public static bool encode = true;
     }
 }

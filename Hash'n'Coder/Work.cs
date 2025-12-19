@@ -79,37 +79,43 @@ namespace Hash_n_Coder
         public static string EbcEncode(string text)
         {
             byte[] key = HexStringToBytes(Settings.keytext);
-            byte[] plainText = Encoding.UTF8.GetBytes(text);
             using (Aes aes = Aes.Create())
             {
                 aes.KeySize = Settings.KeySize;
                 aes.Key = key;
                 aes.Mode = CipherMode.ECB;
                 aes.Padding = PaddingMode.PKCS7;
-                using (ICryptoTransform encryptor = aes.CreateEncryptor())
+                if (Settings.encode)
                 {
-                    byte[] cipherText = encryptor.TransformFinalBlock(plainText, 0, plainText.Length);
-                    return BitConverter.ToString(cipherText).Replace("-", "");
+                    byte[] plainText = Encoding.UTF8.GetBytes(text);
+                    using (ICryptoTransform encryptor = aes.CreateEncryptor())
+                    {
+                        byte[] cipherText = encryptor.TransformFinalBlock(plainText, 0, plainText.Length);
+                        return BitConverter.ToString(cipherText).Replace("-", "");
+                    }
+                }
+                else
+                {
+                    byte[] cipherText = HexStringToBytes(text);
+                    using (ICryptoTransform decryptor = aes.CreateDecryptor())
+                    {
+                        byte[] plainText = decryptor.TransformFinalBlock(cipherText, 0, cipherText.Length);
+                        return Encoding.UTF8.GetString(plainText);
+                    }
                 }
             }
         }
-        public static string EbcDecode(string text)
-        {
-            byte[] key = HexStringToBytes(Settings.keytext);
-            byte[] cipherText = HexStringToBytes(text);
-            using (Aes aes = Aes.Create())
-            {
-                aes.KeySize = Settings.KeySize;
-                aes.Key = key;
-                aes.Mode = CipherMode.ECB;
-                aes.Padding = PaddingMode.PKCS7;
-                using (ICryptoTransform decryptor = aes.CreateDecryptor())
-                {
-                    byte[] plainText = decryptor.TransformFinalBlock(cipherText, 0, cipherText.Length);
-                    return Encoding.UTF8.GetString(plainText);
-                }
-            }
-        }
+        //public static string EbcDecode(string text)
+        //{
+        //    byte[] key = HexStringToBytes(Settings.keytext);
+        //    using (Aes aes = Aes.Create())
+        //    {
+        //        aes.KeySize = Settings.KeySize;
+        //        aes.Key = key;
+        //        aes.Mode = CipherMode.ECB;
+        //        aes.Padding = PaddingMode.PKCS7;
+        //    }
+        //}
         public static string CbcEncode(string text)
         {
             byte[] key = HexStringToBytes(Settings.keytext);
