@@ -111,14 +111,7 @@ namespace Hash_n_Coder
                 }
                 if (BtnUrl.Checked)
                 {
-                    if (EncodeBtn.Checked)
-                    {
-                        ResultText.Text = Work.UrlEncode(Settings.inputText);
-                    }
-                    if (DecodeBtn.Checked)
-                    {
-                        ResultText.Text = Work.UrlDecode(Settings.inputText);
-                    }
+                    ResultText.Text = Work.UrlEncode(Settings.inputText);
                 }
                 if (BtnHtml.Checked)
                 {

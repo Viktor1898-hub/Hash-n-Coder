@@ -27,11 +27,14 @@ namespace Hash_n_Coder
         }
         public static string UrlEncode(string text)
         {
-            return System.Net.WebUtility.UrlEncode(text);
-        }
-        public static string UrlDecode(string text)
-        {
-            return System.Net.WebUtility.UrlDecode(text);
+            if (Settings.encode)
+            {
+                return System.Net.WebUtility.UrlEncode(text);
+            }
+            else
+            {
+                return System.Net.WebUtility.UrlDecode(text);
+            }
         }
         public static string HtmlEncode(string text)
         {
